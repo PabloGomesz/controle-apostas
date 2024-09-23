@@ -1,26 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <NavBar /> <!-- Colocando o NavBar ao lado do conteúdo -->
+    <div class="main-content">
+      <router-view /> <!-- Aqui é onde as rotas renderizam o conteúdo -->
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavBar from './components/NavBar.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    NavBar,
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  height: 100vh;
+  width: 100%;
 }
+
+.main-content {
+  flex-grow: 1; /* Permite que o conteúdo ocupe o resto do espaço */
+  padding: 20px;
+  background-color: #f4f4f4;
+  overflow-y: auto;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 </style>
